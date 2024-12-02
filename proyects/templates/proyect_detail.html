@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ proyect.nombre }} - Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        strong {
+            color: #333;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            text-align: center;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .detail-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .json-view {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-family: "Courier New", monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ proyect.nombre }}</h1>
+        
+        <div class="detail-item">
+            <p><strong>RUT:</strong> {{ proyect.rut }}</p>
+        </div>
+
+        <div class="detail-item">
+            <p><strong>Correo:</strong> {{ proyect.correo }}</p>
+        </div>
+
+        <div class="detail-item">
+            <p><strong>Created at:</strong> {{ proyect.created_at }}</p>
+        </div>
+
+        <!-- JSON View Section -->
+        <div class="json-view">
+            <h2>Project Data in JSON Format</h2>
+            <pre>
+{
+  "nombre": "{{ proyect.nombre }}",
+  "rut": "{{ proyect.rut }}",
+  "correo": "{{ proyect.correo }}",
+  "created_at": "{{ proyect.created_at }}"
+}
+            </pre>
+        </div>
+
+        <a href="{% url 'proyect_list' %}">Back to Project List</a>
+    </div>
+</body>
+</html>
