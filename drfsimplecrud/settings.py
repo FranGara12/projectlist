@@ -64,7 +64,7 @@ ROOT_URLCONF = 'drfsimplecrud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -130,6 +130,10 @@ STATIC_URL = '/static/'  # Esta es la URL pública para acceder a los archivos e
 if not DEBUG:  # Solo en modo producción
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # Ruta de almacenamiento de archivos estáticos
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'  # Configuración de almacenamiento para archivos comprimidos
+
+STATICFILES_DIRS = [
+    BASE_DIR / "templates",  # Incluye la carpeta de templates aquí si es necesario
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
