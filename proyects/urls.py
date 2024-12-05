@@ -1,15 +1,10 @@
 from rest_framework import routers
 from .api import ProjectViewSet
-
-router = routers.DefaultRouter()
-
-router.register('api/projects', ProjectViewSet, 'projects')
-
-urlpatterns = router.urls
-
-# urls.py
 from django.urls import path
 from . import views
+
+router = routers.DefaultRouter()
+router.register('api/projects', ProjectViewSet, 'projects')
 
 urlpatterns = [
     path('', views.proyect_list, name='proyect_list'),
@@ -19,3 +14,5 @@ urlpatterns = [
     path('proyect/<int:pk>/delete/', views.proyect_delete, name='proyect_delete'),
 ]
 
+# Incluye las URLs de DRF
+urlpatterns += router.urls
