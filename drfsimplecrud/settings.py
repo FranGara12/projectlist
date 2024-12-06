@@ -49,8 +49,10 @@ ROOT_URLCONF = 'drfsimplecrud.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_DIR],  # Aquí solo va la ruta a las plantillas
-        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),  # Carpeta global de plantillas
+        ],
+        'APP_DIRS': True,  # Habilita búsqueda automática de plantillas dentro de cada aplicación
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
